@@ -22,6 +22,11 @@ import java.io.*;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+import java.awt.*;
+import java.awt.image.*;
+import java.io.*;
+import javax.imageio.*;
+import javax.swing.*;
 /**
  * This terminal application creates an Apache Lucene index in a folder and adds files into this index
  * based on the input of the user.
@@ -103,6 +108,15 @@ public class tutoIndexer {
           int docId = hits[i].doc;
           Document d = searcher.doc(docId);
           System.out.println((i + 1) + ". " + d.get("path") + " score=" + hits[i].score);
+          //String theJpgPath="";
+          String theJpgPath=d.get("path") ;
+          
+          
+          
+          theJpgPath=theJpgPath.replace("annotations_complete_eng","images");
+          theJpgPath=theJpgPath.replace(".eng", ".jpg");
+          System.out.println("theJpgPath: "+theJpgPath);
+          indexer.ImageDemo(theJpgPath);
             }
         }
        catch (Exception e) {
@@ -204,5 +218,37 @@ public class tutoIndexer {
    */
   public void closeIndex() throws IOException {
     writer.close();
+  }  
+
+  public void ImageDemo(final String filename) throws Exception
+  {
+    SwingUtilities.invokeLater(new Runnable()
+    {
+      public void run()
+      {
+        JFrame editorFrame = new JFrame("GsuImageFindingTool");
+        editorFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
+        BufferedImage image = null;
+        try
+        {
+          image = ImageIO.read(new File(filename));
+        }
+        catch (Exception e)
+        {
+          e.printStackTrace();
+          System.exit(1);
+        }
+        ImageIcon imageIcon = new ImageIcon(image);
+        JLabel jLabel = new JLabel();
+        jLabel.setIcon(imageIcon);
+        editorFrame.getContentPane().add(jLabel, BorderLayout.CENTER);
+
+        editorFrame.pack();
+        editorFrame.setLocationRelativeTo(null);
+        editorFrame.setVisible(true);
+      }
+    });
   }
 }
+
