@@ -1,8 +1,1 @@
-   _____           _____                            ______ _           _ _          _______          _ 
-  / ____|         |_   _|                          |  ____(_)         | (_)        |__   __|        | |
- | |  __ ___ _   _  | |  _ __ ___   __ _  __ _  ___| |__   _ _ __   __| |_ _ __   __ _| | ___   ___ | |
- | | |_ / __| | | | | | | '_ ` _ \ / _` |/ _` |/ _ \  __| | | '_ \ / _` | | '_ \ / _` | |/ _ \ / _ \| |
- | |__| \__ \ |_| |_| |_| | | | | | (_| | (_| |  __/ |    | | | | | (_| | | | | | (_| | | (_) | (_) | |
-  \_____|___/\__,_|_____|_| |_| |_|\__,_|\__, |\___|_|    |_|_| |_|\__,_|_|_| |_|\__, |_|\___/ \___/|_|
-                                          __/ |                                   __/ |                
-                                         |___/                                   |___/                 
+This is my first take on an image indexing and retrieval application that takes either a text or an image as an input. The project is completely written in JAVA. Its major libraries are Apache Lucene and LIRE Project.
