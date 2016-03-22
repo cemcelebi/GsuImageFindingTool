@@ -1,1 +1,0 @@
-This is my first take on an image indexing and retrieval application that takes either a text or an image as an input. The project is completely written in JAVA. Its major libraries are Apache Lucene and LIRE Project.
